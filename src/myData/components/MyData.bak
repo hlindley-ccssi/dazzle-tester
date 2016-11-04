@@ -1,0 +1,56 @@
+var React = require('react');
+var Recharts = require('Recharts');
+var axios  = require('axios');
+
+const {BarChart, Bar, XAxis, YAxis, ResponsiveContainer, CartesianGrid, Tooltip, Legend} = Recharts;
+ function getChartData(){
+   return axios.get('https://spreadsheets.google.com/feeds/list/1PAfqv93Xl_HUG-qVbrYo0oh75gIkgfuPj47lWumDel8/od6/public/values?alt=json')
+ }
+// const data = [
+//       {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
+//       {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
+//       {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
+//       {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
+//       {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
+//       {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
+//       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+// ];
+
+
+const MyData = React.createClass({
+  getInitialState: function () {
+      return { data: [] };
+    },
+componentDidMount: function(){
+  
+  var that = this;
+  const retObj = [];
+  getChartData().then(function(response) {
+    var reterData = response.data.feed.entry[0];
+    Object.keys(reterData).map(function ( index) {
+      if (index.includes("gsx$")){
+        retObj.push({name:index.substr(index.indexOf("$")+1), earnings:+reterData[index].$t})
+      }
+    })
+    that.setState({data: retObj});
+    console.log(retObj)
+  })
+},
+	render () {
+  	return (
+      <ResponsiveContainer height={200}>
+    	<BarChart   data={this.state.data}
+            margin={{top: 25, right: 30, left: 20, bottom: 5}}>
+       <XAxis dataKey="name"/>
+       <YAxis/>
+       <CartesianGrid strokeDasharray="3 3"/>
+       <Tooltip/>
+       <Legend />
+       <Bar dataKey="earnings" fill="#8884d8" />
+      </BarChart>
+      </ResponsiveContainer>
+    );
+  }
+})
+
+module.exports = MyData;

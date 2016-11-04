@@ -1,0 +1,49 @@
+/*
+  LifeDash Custom Styles
+*/
+
+/*a {
+  color: #b1d66c !important;
+  text-decoration: underline !important;
+}*/
+.ReactModal__Overlay{
+  z-index: 2;
+}
+.custom-sidebar-class {
+  top: 60px !important;
+}
+
+.client-main-color {
+  color: #b1d66c;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.avatar {
+  top: 5px;
+  right: 5px;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.top-asset-stars {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+.gold {
+  color: #fcb405;
+}

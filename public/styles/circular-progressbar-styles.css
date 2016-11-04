@@ -1,0 +1,55 @@
+
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #3e98c7;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d6d6d6;
+  stroke-linecap: butt;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #3e98c7;
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.CircularProgressbar.progress-green .CircularProgressbar-path {
+  stroke: #99cc33;
+}
+
+.CircularProgressbar.progress-green .CircularProgressbar-trail {
+  stroke: #7E8F59;
+}
+
+.CircularProgressbar.progress-green .CircularProgressbar-text {
+  fill: #99cc33;
+}
+
+.CircularProgressbar.progress-red .CircularProgressbar-path {
+  stroke: #FF3F40;
+}
+
+.CircularProgressbar.progress-red .CircularProgressbar-trail {
+  stroke: #783637;
+}
+
+.CircularProgressbar.progress-red .CircularProgressbar-text {
+  fill: #FF3F40;
+}
+
+.CircularProgressbar.progress-yellow .CircularProgressbar-path {
+  stroke: #FCB609;
+}
+
+.CircularProgressbar.progress-yellow .CircularProgressbar-trail {
+  stroke: #7C6039;
+}
+
+.CircularProgressbar.progress-yellow .CircularProgressbar-text {
+  fill: #FCB609;
+}
