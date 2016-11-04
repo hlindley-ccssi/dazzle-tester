@@ -189,7 +189,7 @@ class MyDataContainer extends Component {
       });
 
       // Close the dialogbox
-      //this.onRequestClose();
+      this.onRequestClose();
     }
   }
 
